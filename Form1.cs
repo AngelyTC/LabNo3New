@@ -34,12 +34,14 @@ namespace LabNo3New
                     //Buscar lo seleccionado en el combobox
                     webBrowser1.Navigate(new Uri(cmbBuscar.Text));
                     Guardar(@"C:\ArchivoLab3.txt", cmbBuscar.Text);
+                    cmbBuscar.Items.Add(uri);
                 }
                 else
                 {
                     webBrowser1.Navigate(new Uri("https://" + cmbBuscar.Text));
                     cmbBuscar.Text = "https://" + cmbBuscar.Text;
                     Guardar(@"C:\ArchivoLab3.txt", cmbBuscar.Text);
+                    cmbBuscar.Items.Add(uri);
                 }
             }
             else
