@@ -32,6 +32,7 @@ namespace LabNo3New
             this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.btnIr = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbBuscar
@@ -60,11 +61,22 @@ namespace LabNo3New
             this.btnIr.UseVisualStyleBackColor = true;
             this.btnIr.Click += new System.EventHandler(this.btnIr_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(246, 457);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 607);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnIr);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.cmbBuscar);
@@ -80,6 +92,7 @@ namespace LabNo3New
         private System.Windows.Forms.ComboBox cmbBuscar;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button btnIr;
+        private System.Windows.Forms.Button button1;
     }
 }
 

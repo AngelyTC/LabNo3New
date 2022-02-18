@@ -33,15 +33,13 @@ namespace LabNo3New
                 {
                     //Buscar lo seleccionado en el combobox
                     webBrowser1.Navigate(new Uri(cmbBuscar.Text));
-                    Guardar(@"C:\Users\USUARIO\Documents\ArchivoLab3.txt", uri);
-                    cmbBuscar.Items.Add(uri);
+                    Guardar(@"C:\ArchivoLab3.txt", cmbBuscar.Text);
                 }
                 else
                 {
                     webBrowser1.Navigate(new Uri("https://" + cmbBuscar.Text));
                     cmbBuscar.Text = "https://" + cmbBuscar.Text;
-                    Guardar(@"C:\Users\USUARIO\Documents\ArchivoLab3.txt", uri);
-                    cmbBuscar.Items.Add(uri);
+                    Guardar(@"C:\ArchivoLab3.txt", cmbBuscar.Text);
                 }
             }
             else
@@ -67,7 +65,7 @@ namespace LabNo3New
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string nombreArchivo = @"C:\Users\USUARIO\Documents\ArchivoLab3.txt";
+            string nombreArchivo = @"C:\ArchivoLab3.txt";
 
             FileStream stream = new FileStream(nombreArchivo, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
@@ -78,6 +76,11 @@ namespace LabNo3New
                cmbBuscar.Items.Add(texto);
             }
             reader.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
