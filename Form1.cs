@@ -33,15 +33,11 @@ namespace LabNo3New
                 {
                     //Buscar lo seleccionado en el combobox
                     webBrowser1.Navigate(new Uri(cmbBuscar.Text));
-                    Guardar(@"C:\ArchivoLab3.txt", cmbBuscar.Text);
-                    cmbBuscar.Items.Add(uri);
                 }
                 else
                 {
                     webBrowser1.Navigate(new Uri("https://" + cmbBuscar.Text));
                     cmbBuscar.Text = "https://" + cmbBuscar.Text;
-                    Guardar(@"C:\ArchivoLab3.txt", cmbBuscar.Text);
-                    cmbBuscar.Items.Add(uri);
                 }
             }
             else
@@ -49,8 +45,23 @@ namespace LabNo3New
                 uri = "http://www.google.com/search?q=" + uri;
                 webBrowser1.Navigate(new Uri(uri));
             }
-           
 
+            //Para guardar urls sin repetir
+            int veces = 0;
+            for (int i = 0; i < cmbBuscar.Items.Count; i++)
+            {
+                if (cmbBuscar.Items[i].ToString() == uri)
+                {
+                    veces++;                    
+                }              
+            }
+            if (veces == 0)
+            {
+                cmbBuscar.Items.Add(uri);
+                Guardar("Archivo4.txt", uri);
+            }
+
+           
         }
 
         private void Guardar(string nombreArchivo, string texto)
@@ -67,7 +78,7 @@ namespace LabNo3New
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string nombreArchivo = @"C:\ArchivoLab3.txt";
+            string nombreArchivo = "Archivo4.txt";
 
             FileStream stream = new FileStream(nombreArchivo, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
